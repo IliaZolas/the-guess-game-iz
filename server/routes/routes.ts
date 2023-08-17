@@ -8,7 +8,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import auth from './auth';
 import cloudinary from 'cloudinary';
-import {generateAPI} from '../api/generate'
+import {gameAPI} from '../api/game'
 
 const routes: Router = express.Router();
 
@@ -248,9 +248,9 @@ routes.delete('/mealplan/delete/:id/user/:user_id', auth, async (req: Request, r
 
 // call openai generate
 
-routes.post('/generate', async (req, res) => {
+routes.post('/game', async (req, res) => {
     try {
-        await generateAPI(req, res); // Pass req and res directly to generateAPI
+        await gameAPI(req, res); // Pass req and res directly to generateAPI
     } catch (error) {
         const errorMessage = (error as Error).message;
         res.status(500).json({ error: errorMessage });

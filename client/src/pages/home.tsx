@@ -8,9 +8,9 @@ const Home = () => {
                 <div className="hero-banner">
                     <div className="hero-txt-area">
                         <h1>Guess the Number</h1>
-                        <p>Signup to play</p>
+                        <p>You need to be logged in to play.</p>
                     </div>
-                    <PrimaryButton value="Signup" to="/signup" />
+                    <PrimaryButton value="Signup to get started" to="/signup" />
                 </div>
             </div>
         </div>

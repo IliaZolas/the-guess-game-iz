@@ -103,7 +103,7 @@ const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     return (
     <div className="form-container">
         <div className="form-user-image-container">
-            <img src={imageUrl} alt="preview"/>
+            {imageUrl && <img src={imageUrl} alt="preview"/>}
         </div>
         <form method="post" onSubmit={handleSubmit} encType="multipart/form-data">
             <label className="labels">
