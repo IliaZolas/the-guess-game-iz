@@ -41,6 +41,7 @@ npm install
 ````
 
 **Running the Client**
+
 To start the client, run the following command within the client directory:
 
 ````
