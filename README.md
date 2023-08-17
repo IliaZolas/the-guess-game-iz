@@ -1,4 +1,5 @@
-**Guess the Number App**
+<h1>Guess the Number App**</h1>
+
 Welcome to the "Guess the Number" app! This is a simple interactive game where players can try to guess a randomly generated number.
 
 The app is divided into two directories: server and client.
