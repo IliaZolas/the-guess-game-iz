@@ -257,5 +257,4 @@ routes.post('/game', async (req, res) => {
     }
 });
 
-
 export default routes;

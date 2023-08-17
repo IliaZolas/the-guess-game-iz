@@ -84,7 +84,7 @@ const AddUser: React.FC = () => {
         .catch((err) => {
         console.log(err.message , ":error message");
     });
-    navigate('/meal-plans');
+    navigate('/game');
 };
 
 const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
