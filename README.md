@@ -1,99 +1,53 @@
-<h1>Nutrifit Assistant</h1>
+**Guess the Number App**
+Welcome to the "Guess the Number" app! This is a simple interactive game where players can try to guess a randomly generated number.
 
-NutriFit is a web application built using Node.js, Express, React, and TypeScript. It helps users manage their daily caloric needs, generate personalized meal plans, and create shopping lists for a week's worth of ingredients.
+The app is divided into two directories: server and client.
 
-**Features**
-**Calculate Daily Caloric Needs:** Based on user input such as weight, age, height, physical activity, dietary needs, diseases, and gender, NutriFit calculates the user's daily caloric needs.
+**Server**
+The server directory contains the backend of the app.
 
-**Personalized Meal Plan:** Users can set their fitness goals, such as losing fat or gaining muscle. NutriFit generates a personalized meal plan for one day based on the user's caloric needs and goals.
-
-**Shopping List Generation:** The app creates a shopping list with all the ingredients and quantities required for the meal plan for a 7-day period. It also estimates the price for each ingredient and provides a total price for the shopping list.
-
-**User-Friendly Interface:** NutriFit features an intuitive and easy-to-use interface, allowing users to input their information and view the generated meal plan and shopping list effortlessly.
-
-**Technologies Used**
-Node.js: A server-side JavaScript runtime environment for building scalable applications.
-Express: A minimalist web application framework for Node.js.
-React: A JavaScript library for building user interfaces.
-TypeScript: A typed superset of JavaScript that compiles to plain JavaScript.
-
-**Installation and Usage**
-
-Clone this repository:
+**Installation**
+To install the server dependencies, navigate to the server directory:
 
 ```
-git clone https://github.com/IliaZolas/nutrifit-assistant.git
-```
-
-Navigate to the project directory:
-
-```
-cd nutrifit-assistant
-```
-
-Install server dependencies:
-
-```
+cd server
 npm install
 ```
 
-Install client dependencies:
+**Running the Server**
+To start the server, run the following command within the server directory:
 
 ```
-cd client
-npm install
-```
-
-Build the client:
-
-```
-npm run build
-```
-
-Run the server:
-
-```
-cd ..
 npm start
 ```
 
-Open your web browser and visit http://localhost:3000 to access NutriFit Assitant.
+The server will start running, allowing the client to communicate with it.
 
-**Before Running the App**
+**Client**
+The client directory contains the frontend of the app.
 
-1. Before cloning and launching, please create a MongoDB account as well as a Cloudinary account to obtain your api keys.
+**Installation**
+To install the client dependencies, navigate to the client directory:
 
-2. Clone repo
+````
+cd client
+npm install
+````
 
-3. Create .env files and populate them like so
+**Running the Client**
+To start the client, run the following command within the client directory:
 
-.env in root of server folder
+````
+npm start
+````
 
-```
-DATABASE_ACCESS=put-your-mongodb-access-url-here
-CLOUDINARY_URL=put-your-cloudinary-access-url-here
-CLOUD_NAME=put-your-cloudinary-name-here
-CLOUD_API_KEY=put-your-cloudinary-api-key-here
-CLOUD_API_SECRET=put-your-cloudinary-api-secret-here
-```
+This will launch the client application in your browser.
 
-.env in root of client folder
+**How to Play**
+1. Open your web browser and go to the provided URL where the client is running.
+2. You'll be presented with the game interface.
+3. Try to guess the randomly generated number by inputting your guess in the provided field and clicking the "Submit" button.
+4. The app will give you feedback on whether your guess is too high, too low, or correct.
+5. Keep guessing until you find the correct number!
 
-```
-REACT_APP_CLOUDINARY_USERNAME=your-cloudinary-user-name-here
-REACT_APP_CLOUDINARY_PRESET="your-preset-name-in-betwen-these-quotes"
-``` 
-
-4. cd server, <code>npm install</code> and then <code>npm start</code>
-
-5. cd client, <code>npm install</code> and then <code>npm start</code>
-
-**Working with MongoDB**
-
-Make sure to include your IP address of your workplaces in the MongoDB dashboard. 
-
-For development purposes, you can also set MongoDB to accept requests from any IP address to avoid confusion when working from different places.
-
-
-**How to Contribute**
-Contributions to NutriFit are welcome! If you find any issues or have ideas for improvements, feel free to open an issue or create a pull request.
+Enjoy playing the "Guess the Number" game!
