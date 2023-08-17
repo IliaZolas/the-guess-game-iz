@@ -1,5 +1,5 @@
 .fullwidth {
-    background-image: url('https://source.unsplash.com/random/?food');
+    /* background-image: url('https://source.unsplash.com/random/?food'); */
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -29,5 +29,5 @@
 
 .hero-txt-area {
     padding: 20px;
-    background-color: #E1E4D8;
+    /* background-color: #E1E4D8; */
 }

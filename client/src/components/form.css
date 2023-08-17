@@ -45,7 +45,7 @@ input[type="file"] {
 .primary-submit-button {
     color: white;
     font-size: 18px;;
-    background-color: red;
+    background-color: darkgrey;
     border: 0px;
     padding: 20px 10px;
 }
@@ -70,9 +70,6 @@ input[type="file"] {
 }
 
 .form-user-image-container {
-    position: absolute;
-    top: 50px;
-    left:200px;
     border-radius: 50%;
     background-color: lightgrey;
     width: 250px;

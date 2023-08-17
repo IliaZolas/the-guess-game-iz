@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { useNavigate } from 'react-router-dom';
 import { config } from '../config/config';
-import "../components/meal-plan-form.css"
+import "../components/form.css"
 import "./signup.css"
 
 const URL = config.url;

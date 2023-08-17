@@ -1,6 +1,6 @@
 import { useContext, useState, FormEvent } from "react";
 import { useNavigate } from 'react-router-dom';
-import "../components/meal-plan-form.css"
+import "../components/form.css"
 import Cookies from "universal-cookie";
 import { UserContext } from '../UserContext';
 import { config } from '../config/config';

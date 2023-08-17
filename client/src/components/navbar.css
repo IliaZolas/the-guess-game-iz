@@ -8,6 +8,12 @@
     width: 100%; */
 }
 
+.logged-out {
+    background-color:grey;
+    /* position: fixed;
+    width: 100%; */
+}
+
 .logo {
     display: flex;
     justify-content: left;
@@ -36,7 +42,7 @@
 }
 
 .nav-cta a {
-    background-color: #ED3D1E;
+    background-color: darkgrey;
     color:white;
     padding: 10px 15px;
 }
