@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../UserContext';
 import { config } from '../config/config';
-import "./show-book.css"
+import "./game.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleLeft, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
 import Cookies from "universal-cookie";
@@ -17,7 +17,7 @@ interface MealPlan {
     result: string;
 }
 
-const ShowMealPlan: React.FC = () => {
+const Game: React.FC = () => {
     const [mealplan, setMealPlan] = useState<MealPlan>({
         _id: "",
         title: "",
@@ -102,4 +102,4 @@ const ShowMealPlan: React.FC = () => {
     );
 }
 
-export default ShowMealPlan;
+export default Game;

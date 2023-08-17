@@ -2,10 +2,7 @@ import React, { Dispatch, SetStateAction, useEffect, useMemo, useState } from 'r
 import './App.css';
 import Navbar from './components/navbar';
 import Home from './pages/home';
-import MealPlans from './pages/meal-plans';
-import NewMealPlan from './pages/addMealPlan';
-import UpdateBook from './pages/updateBook';
-import ShowMealPlan from './pages/ShowMealPlan';
+import Game from './pages/game';
 import AddUser from './pages/signup';
 import LoginUser from './pages/login';
 import ShowUser from './pages/showUser';
@@ -52,13 +49,10 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/meal-plans" element={<MealPlans />} />
-            <Route path="/mealplan/show/:id" element={<ShowMealPlan />} />
             <Route path="/signup" element={<AddUser />} />
             <Route path="/login" element={<LoginUser />} />
             <Route element={<ProtectedRoutes />}>
-              <Route path="/new-mealplan" element={<NewMealPlan />} />
-              <Route path="/book/update/:id" element={<UpdateBook />} />
+              <Route path="/game" element={<Game/>} />
               <Route path="/user/show/:id" element={<ShowUser />} />
               <Route path="/user/update/:id" element={<UpdateUser />} />
             </Route>

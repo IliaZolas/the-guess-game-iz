@@ -20,22 +20,12 @@ const Navbar: React.FC = () => {
     <div className="navbar logged-out">
       <div className="logo">
         <Link to="/" className="item">
-          Nutrifit
+          Guess the Number
         </Link>
       </div>
       {user ? (
         <div className="navbar logged-in">
           <div className="navitems">
-            <div className="nav-item">
-              <Link to="/meal-plans" className="item">
-                Meal Plans
-              </Link>
-            </div>
-            <div className="nav-item">
-              <Link to="/new-mealplan" className="item">
-                New Meal Plan
-              </Link>
-            </div>
             <div className="user-navitem">
               Account
               <div className='nav-dropdown'>
@@ -60,14 +50,9 @@ const Navbar: React.FC = () => {
               Home
             </Link>
           </div>
-          <div className="nav-item">
+          <div className="nav-item nav-cta">
             <Link to="/login" className="item">
               Login
-            </Link>
-          </div>
-          <div className="nav-item nav-cta">
-            <Link to="/signup" className="item">
-              Signup
             </Link>
           </div>
         </div>
