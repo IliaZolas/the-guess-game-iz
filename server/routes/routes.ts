@@ -40,6 +40,7 @@ bcrypt
         });
     })
     .catch((error) => {
+        console.log(error),
         res.status(500).send({
         message: 'Error creating user',
         error,
@@ -53,6 +54,7 @@ bcrypt
     });
 });
 });
+
 
 routes.post('/login', (req: Request, res: Response) => {
     console.log('login route triggered');

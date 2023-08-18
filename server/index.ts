@@ -1,5 +1,5 @@
 import express, { Express } from 'express';
-// import mongoose from 'mongoose';
+import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import routesUrls from './routes/routes';
 import cors, { CorsOptions } from 'cors';
@@ -11,19 +11,28 @@ dotenv.config();
 const app: Express = express();
 const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 4000;
 
-const connectionString = `${process.env.DATABASE_ACCESS}`;
+mongoose
+  .connect(process.env.DATABASE_ACCESS || '')
+  .then(() => {
+    console.log('MongoDB connected');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
+  });
 
-const mongoClient = new MongoClient(connectionString);
+// const connectionString = `${process.env.DATABASE_ACCESS}`;
 
-mongoClient.connect();
+// const mongoClient = new MongoClient(connectionString);
 
-mongoClient.on('open', () => {
-  console.log('Connected to MongoDB');
-});
+// mongoClient.connect();
 
-mongoClient.on('error', (err) => {
-  console.error('Error connecting to MongoDB:', err);
-});
+// mongoClient.on('open', () => {
+//   console.log('Connected to MongoDB');
+// });
+
+// mongoClient.on('error', (err) => {
+//   console.error('Error connecting to MongoDB:', err);
+// });
 
 const corsOptions: CorsOptions = {
   origin: ['https://name-of-your.app', 'http://localhost:3000'],

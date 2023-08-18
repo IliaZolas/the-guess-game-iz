@@ -35,7 +35,7 @@ const UserSchema: Schema = new Schema ({
             type: String,
             required: true
         }
-})
+}, { collection: 'guess-game' });
 
 const UserModel = mongoose.model<User>('usertable', UserSchema);
 

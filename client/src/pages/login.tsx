@@ -57,7 +57,7 @@ const LoginUser: React.FC = () => {
         .catch((err) => {
         console.log(err.message , ":error message");
     });
-    navigate('/new-mealplan');
+    navigate('/game');
 };
 
 const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
