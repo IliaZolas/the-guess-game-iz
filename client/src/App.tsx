@@ -3,6 +3,8 @@ import './App.css';
 import Navbar from './components/navbar';
 import Home from './pages/home';
 import Game from './pages/game';
+import GameStart from './pages/game-start';
+import GameOver from './pages/game-over';
 import AddUser from './pages/signup';
 import LoginUser from './pages/login';
 import ShowUser from './pages/showUser';
@@ -53,6 +55,8 @@ function App() {
             <Route path="/login" element={<LoginUser />} />
             <Route element={<ProtectedRoutes />}>
               <Route path="/game" element={<Game/>} />
+              <Route path="/game-start" element={<GameStart/>} />
+              <Route path="/game-over" element={<GameOver/>} />
               <Route path="/user/show/:id" element={<ShowUser />} />
               <Route path="/user/update/:id" element={<UpdateUser />} />
             </Route>

@@ -55,7 +55,6 @@ bcrypt
 });
 });
 
-
 routes.post('/login', (req: Request, res: Response) => {
     console.log('login route triggered');
 
@@ -113,146 +112,11 @@ routes.get('/user/show/:id', (req: Request, res: Response) => {
     Users.findOne({ _id: userId }).then((data) => res.json(data));
     });
 
-routes.put('/user/update/:id', auth, (req: Request, res: Response) => {
-    const userId = req.params.id;
-    console.log('update user id route', userId);
+// Game routes
 
-    Users.updateOne(
-    { _id: userId },
-    {
-        name: req.body.name,
-        surname: req.body.surname,
-        email: req.body.email,
-        imageUrl: req.body.imageUrl,
-        public_id: req.body.publicId,
-    }
-    ).then((data) => res.json(data));
-    });
-
-routes.delete('/user/delete/:id', (req: Request, res: Response) => {
-    const userId = req.params.id;
-    console.log(userId, ':delete route');
-    
-    Users.deleteOne({ _id: userId }, function (err: Error | null, _result: any) {
-        if (err) {
-        res.status(400).send(`Error deleting listing with id ${userId}!`);
-        } else {
-        console.log(`${userId} document deleted`);
-        }
-    });
-    
-    cloudinary.v2.config({
-        cloud_name: process.env.CLOUD_NAME,
-        api_key: process.env.CLOUD_API_KEY,
-        api_secret: process.env.CLOUD_API_SECRET,
-    });
-    
-    const publicId = req.params.public_id;
-    console.log('cloudinary check public_id for delete:', publicId);
-    
-    cloudinary.v2.uploader
-        .destroy(publicId)
-        .then((result) => console.log('cloudinary delete', result))
-        .catch((_err) => console.log('Something went wrong, please try again later.'));
-    });
-    
-
-// Meal Plan Routes
-
-routes.post('/mealplan/upload', (req, res) => {});
-
-routes.post('/mealplan/add', (req: Request, res: Response) => {
-    const newMealPlan = new newMealPlanTemplateCopy({
-    title: req.body.title,
-    description: req.body.description,
-    result: req.body.result,
-    user: req.body.user,
-    });
-    newMealPlan
-    .save()
-    .then((data) => {
-        res.json(data);
-        console.log('Send request successful:', data);
-    })
-    .catch((error) => {
-        res.json(error);
-        console.log('Send request failed', error);
-    });
-    });
-
-routes.get('/mealplan/show/:id', (req: Request, res: Response) => {
-    const mealPlanId = req.params.id;
-    console.log('GET SINGLE RECORD:', mealPlanId);
-
-    MealPlans.findOne({ _id: mealPlanId }).then((data) => res.json(data));
-    });
-
-routes.get('/mealplans', (req: Request, res: Response) => {
-        MealPlans.find().then((data) => res.json(data));
-    });
-
-routes.put('/mealplan/update/:id', auth, (req: Request, res: Response) => {
-    const mealPlanId = req.params.id;
-    console.log(mealPlanId, 'update book id route');
-
-    MealPlans.updateOne(
-    { _id: mealPlanId },
-    {
-        title: req.body.title,
-        description: req.body.description,
-        imageUrl: req.body.imageUrl,
-        public_id: req.body.publicId,
-    }
-    ).then((data) => res.json(data));
-    });
-
-routes.delete('/mealplan/delete/:id/user/:user_id', auth, async (req: Request, res: Response) => {
+routes.get('/start-the-game', async (req: Request, res: Response) => {
     try {
-        const mealPlanId = req.params.id;
-        const mealplan = await MealPlans.findById(mealPlanId);
-
-        if (!mealplan) {
-            return res.status(404).json({ msg: 'Meal Plan not found' });
-        }
-
-        const mealPlanUser = mealplan.user.toString();
-        const loggedInUser = req.params.user_id;
-        console.log('do these numbers match?:', mealPlanUser, ':', loggedInUser);
-
-        // Check if the user is allowed to delete the book
-        if (mealPlanUser !== loggedInUser) {
-            return res.status(401).json({ msg: 'Not authorized to delete this mealplan' });
-        }
-
-        await MealPlans.deleteOne({ _id: mealPlanId });
-
-        
-        // cloudinary.v2.config({
-        //     cloud_name: process.env.CLOUD_NAME,
-        //     api_key: process.env.CLOUD_API_KEY,
-        //     api_secret: process.env.CLOUD_API_SECRET,
-        // });
-
-        // const publicId = req.params.public_id;
-        // console.log('cloudinary check public_id for delete:', publicId);
-
-        // cloudinary.v2.uploader
-        //     .destroy(publicId)
-        //     .then((result) => console.log('cloudinary delete', result))
-        //     .catch((err) => console.log('Something went wrong, please try again later.', err));
-
-        res.json({ msg: 'Meal Plan deleted' });
-    } catch (err) {
-        console.error((err as Error).message);
-        res.status(500).send('Server Error');
-    }
-});
-
-// call openai generate
-
-routes.post('/game', async (req, res) => {
-    try {
-        await gameAPI(req, res); // Pass req and res directly to generateAPI
+        await gameAPI(req, res);
     } catch (error) {
         const errorMessage = (error as Error).message;
         res.status(500).json({ error: errorMessage });
