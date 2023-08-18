@@ -5,21 +5,19 @@ import { config } from '../config/config';
 import "./game.css"
 import { PrimaryButton } from "../components/buttons";
 
-const Game: React.FC = () => {
+const GameOver: React.FC = () => {
 
     const { user } = useContext(UserContext);
 
     return (
         <div className="fade-page" style={{ paddingTop: "350px"}}>
-            <h1>Start Game</h1>
+            <h1>Game Over</h1>
             <p style={{ paddingBottom: "20px"}}> 
-                Try to guess the randomly generated number by inputting your guess in the provided field and clicking the "Submit" button.
-                <br/>The app will give you feedback on whether your guess is too high, too low, or correct.
-                <br/>Keep guessing until you find the correct number!
+                You win! What do you win? Nothing :D 
             </p>
-            <PrimaryButton to={'/game-start'} value="Start Game"/>
+            <PrimaryButton to={'/game-start'} value="Play Again?"/>
         </div>
     );
 }
 
-export default Game;
+export default GameOver;

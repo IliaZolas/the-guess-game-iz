@@ -4,12 +4,13 @@ import "./buttons.css"
 interface PrimaryButtonProps {
     to: string;
     value: string;
+    onSubmit?: () => void;
   }
 
-const PrimaryButton: React.FC<PrimaryButtonProps> = ({value, to}) => {
+const PrimaryButton: React.FC<PrimaryButtonProps> = ({value, to, onSubmit}) => {
     return (
         <div className="">
-            <Link to={to} className="primary-button" >
+            <Link to={to} onSubmit={onSubmit} className="primary-button" >
                 {value}
             </Link>
         </div>
