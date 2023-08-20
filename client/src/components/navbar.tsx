@@ -44,11 +44,6 @@ const Navbar: React.FC = () => {
         </div>
       ) : (
         <div className="navitems">
-          <div className="nav-item">
-            <Link to="/" className="item">
-              Home
-            </Link>
-          </div>
           <div className="nav-item nav-cta">
             <Link to="/login" className="item">
               Login

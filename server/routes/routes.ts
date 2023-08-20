@@ -112,6 +112,51 @@ routes.get('/user/show/:id', (req: Request, res: Response) => {
     Users.findOne({ _id: userId }).then((data) => res.json(data));
     });
 
+routes.put('/user/update/:id', auth, (req: Request, res: Response) => {
+    const userId = req.params.id;
+    console.log('update user id route', userId);
+
+    Users.updateOne(
+    { _id: userId },
+    {
+        name: req.body.name,
+        surname: req.body.surname,
+        email: req.body.email,
+        imageUrl: req.body.imageUrl,
+        public_id: req.body.publicId,
+    }
+    ).then((data) => res.json(data));
+    });
+
+routes.delete('/user/delete/:id', (req: Request, res: Response) => {
+    const userId = req.params.id;
+    console.log(userId, ':delete route');
+    
+    Users.deleteOne({ _id: userId }, function (err: Error | null, _result: any) {
+        if (err) {
+        res.status(400).send(`Error deleting listing with id ${userId}!`);
+        } else {
+        console.log(`${userId} document deleted`);
+        }
+    });
+    
+    cloudinary.v2.config({
+        cloud_name: process.env.CLOUD_NAME,
+        api_key: process.env.CLOUD_API_KEY,
+        api_secret: process.env.CLOUD_API_SECRET,
+    });
+    
+    const publicId = req.params.public_id;
+    console.log('cloudinary check public_id for delete:', publicId);
+    
+    cloudinary.v2.uploader
+        .destroy(publicId)
+        .then((result) => console.log('cloudinary delete', result))
+        .catch((_err) => console.log('Something went wrong, please try again later.'));
+    });
+
+
+
 // Game routes
 
 routes.get('/start-the-game', async (req: Request, res: Response) => {

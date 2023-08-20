@@ -1,14 +1,23 @@
+.background {
+    background-image: url('https://source.unsplash.com/random/?digital');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
 .container {
-    height: 80vh;
+    height: 100vh;
     display: flex;
     align-items: center;
 }
 
 .form-container{
-    width: 1300px;
+    // width: 1300px;
     margin: auto;
     position: relative;
     padding-top: 40px;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.884);
 }
 
 form {
@@ -20,6 +29,8 @@ form {
 
 .form-container-login {
     margin: auto 0;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.884);
 }
 
 .labels {
@@ -45,7 +56,7 @@ input[type="file"] {
 .primary-submit-button {
     color: white;
     font-size: 18px;;
-    background-color: darkgrey;
+    background-color: #009c9c;
     border: 0px;
     padding: 20px 10px;
 }
@@ -56,7 +67,7 @@ input[type="file"] {
 
 .form-user-image-container {
     border-radius: 50%;
-    background-color: lightgrey;
+    background-color: #009c9c7e;
     width: 250px;
     height: 250px;
     margin: auto;
@@ -69,5 +80,13 @@ form {
 
 
 .login-form {
-    margin-top: 150px;
+    padding-top: 150px;
 }
+
+@media (max-width: 768px) {
+
+        form {
+            width: 310px;
+        }
+
+    }
