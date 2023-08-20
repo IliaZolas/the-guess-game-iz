@@ -8,7 +8,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import auth from './auth';
 import cloudinary from 'cloudinary';
-import {gameAPI} from '../api/game'
+import {gameLogic} from '../game-logic/game'
 
 const routes: Router = express.Router();
 
@@ -116,7 +116,7 @@ routes.get('/user/show/:id', (req: Request, res: Response) => {
 
 routes.get('/start-the-game', async (req: Request, res: Response) => {
     try {
-        await gameAPI(req, res);
+        await gameLogic(req, res);
     } catch (error) {
         const errorMessage = (error as Error).message;
         res.status(500).json({ error: errorMessage });

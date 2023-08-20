@@ -1,16 +1,15 @@
 import {PrimaryButton} from "../components/buttons";
-import "./home.css"
+import { SecondaryButton } from "../components/buttons";
 
 const Home = () => {
     return (
         <div className="fullwidth">
-            <div className="container fade-page">
+            <div className="container-home">
                 <div className="hero-banner">
-                    <div className="hero-txt-area">
-                        <h1>Guess the Number</h1>
-                        <p>You need to be logged in to play.</p>
-                    </div>
+                    <h1>Guess the Number</h1>
+                    <p>You need to be logged in to play.</p>
                     <PrimaryButton value="Signup to get started" to="/signup" />
+                    <SecondaryButton value="or login" to="/login" />
                 </div>
             </div>
         </div>

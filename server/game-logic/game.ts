@@ -1,5 +1,5 @@
 
-export async function gameAPI (req: any, res: any) {
+export async function gameLogic (req: any, res: any) {
     const min = 1; 
     const max = 100;
     const gameId = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -12,4 +12,4 @@ export async function gameAPI (req: any, res: any) {
     res.json({ gameId, gameNumber });
 }
 
-export default gameAPI;
+export default gameLogic;

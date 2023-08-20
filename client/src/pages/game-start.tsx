@@ -2,29 +2,24 @@ import React, { useState, useEffect, useContext, FormEvent } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { UserContext } from '../UserContext';
 import { config } from '../config/config';
-import "./game.css"
 
 const URL = config.url;
-
-interface Input {
-    inputValue: number;
-}
 
 const GameStart: React.FC = () => {
     const { user } = useContext(UserContext);
     const navigate = useNavigate();
 
-    const [gameId, setGameId] = useState("");
-    const [gameNumber, setGameNumber] = useState<number>();
-    const [inputValue, setInputValue] = useState<number>();
+    const [gameId, setGameId] = useState<string>("");
+    const [gameNumber, setGameNumber] = useState<number | undefined>();
+    const [inputValue, setInputValue] = useState<number | undefined>();
     const [guessResult, setGuessResult] = useState<string | null>(null);
 
     useEffect(() => {
         fetch(`${URL}/start-the-game`)
             .then((response) => response.json())
-            .then((data) => {
+            .then((data: { gameId: string; gameNumber: number }) => {
                 console.log(data);
-                setGameId(data.gameId); 
+                setGameId(data.gameId);
                 setGameNumber(data.gameNumber);
             })
             .catch((err) => {
@@ -34,7 +29,7 @@ const GameStart: React.FC = () => {
 
     const onSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        
+
         if (inputValue === undefined) {
             setGuessResult("Please enter a number.");
         } else if (inputValue < gameNumber!) {
@@ -47,7 +42,7 @@ const GameStart: React.FC = () => {
     };
 
     return (
-        <div className="fade-page" style={{ paddingTop: "350px"}}>
+        <div style={{ paddingTop: "350px"}}>
             <h1>Game #{gameId}</h1>
             <p style={{ paddingBottom: "20px"}}> 
                 We have picked a number between 1 and 1000. 

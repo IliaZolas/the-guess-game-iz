@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../UserContext';
 import { config } from '../config/config';
-import "./game.css"
 import { PrimaryButton } from "../components/buttons";
 
 const Game: React.FC = () => {
@@ -10,7 +9,7 @@ const Game: React.FC = () => {
     const { user } = useContext(UserContext);
 
     return (
-        <div className="fade-page" style={{ paddingTop: "350px"}}>
+        <div style={{ paddingTop: "350px"}}>
             <h1>Start Game</h1>
             <p style={{ paddingBottom: "20px"}}> 
                 Try to guess the randomly generated number by inputting your guess in the provided field and clicking the "Submit" button.

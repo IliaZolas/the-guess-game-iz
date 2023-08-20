@@ -1,21 +1,27 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../UserContext';
-import { config } from '../config/config';
-import "./game.css"
 import { PrimaryButton } from "../components/buttons";
+import { SecondaryButton } from "../components/buttons";
+import Cookies from "universal-cookie";
+import { UserContext } from '../UserContext';
 
 const GameOver: React.FC = () => {
+    const { user, setUser } = useContext(UserContext);
 
-    const { user } = useContext(UserContext);
+    const logout = () => {
+        const cookies = new Cookies();
+        cookies.remove("TOKEN", { path: "/" });
+        localStorage.clear();
+        setUser(null);
+    };
 
     return (
-        <div className="fade-page" style={{ paddingTop: "350px"}}>
-            <h1>Game Over</h1>
+        <div style={{ paddingTop: "350px"}}>
+            <h1>You win!</h1>
             <p style={{ paddingBottom: "20px"}}> 
-                You win! What do you win? Nothing :D 
+                The game is over
             </p>
             <PrimaryButton to={'/game-start'} value="Play Again?"/>
+            <SecondaryButton to="/" onClick={() => logout()} value="or logout"/>
         </div>
     );
 }

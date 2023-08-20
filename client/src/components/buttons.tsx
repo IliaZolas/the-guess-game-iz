@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import "./buttons.css"
 
 interface PrimaryButtonProps {
     to: string;
@@ -7,9 +6,15 @@ interface PrimaryButtonProps {
     onSubmit?: () => void;
   }
 
+interface SecondaryButtonProps {
+    to: string;
+    value: string;
+    onClick?: () => void;
+    }
+
 const PrimaryButton: React.FC<PrimaryButtonProps> = ({value, to, onSubmit}) => {
     return (
-        <div className="">
+        <div className="btn-container">
             <Link to={to} onSubmit={onSubmit} className="primary-button" >
                 {value}
             </Link>
@@ -17,28 +22,14 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({value, to, onSubmit}) => {
     );
 };
 
-const SecondaryButton: React.FC = () => {
+const SecondaryButton: React.FC<SecondaryButtonProps>  = ({value, to, onClick}) => {
     return (
-        <div className="">
-            <div className="">
-                <Link to="/add-book">
-                    <p>secondary button</p>
-                </Link>
-            </div>
+        <div className="btn-container">
+            <Link to={to}  onClick={onClick} className="secondary-button">
+                {value}
+            </Link>
         </div>
     );
 };
 
-const TertiaryButton: React.FC = () => {
-    return (
-        <div className="">
-            <div className="">
-                <Link to="/add-book">
-                    <p>tertiary button</p>
-                </Link>
-            </div>
-        </div>
-    );
-};
-
-export { PrimaryButton, SecondaryButton, TertiaryButton };
+export { PrimaryButton, SecondaryButton};
