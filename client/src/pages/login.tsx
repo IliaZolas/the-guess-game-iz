@@ -1,6 +1,5 @@
 import { useContext, useState, FormEvent } from "react";
 import { useNavigate } from 'react-router-dom';
-import "../components/form.css"
 import Cookies from "universal-cookie";
 import { UserContext } from '../UserContext';
 import { config } from '../config/config';
@@ -24,49 +23,62 @@ const LoginUser: React.FC = () => {
     const [token, setToken] = useState('');
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
+
+    function isError(err: any): err is Error {
+        return err instanceof Error;
+        }
     
-    const loginUser = async ( user: User ) => {
-        await fetch(`${URL}/login`, {
-        method: 'POST',
-        body: JSON.stringify({
-            email: email,
-            password: password
-        }),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-            'Authorization': `Bearer ${token}` 
-        },
-        })
-        .then( async (response) => { 
+    const loginUser = async () => {
+        try {
+            const response = await fetch(`${URL}/login`, {
+            method: 'POST',
+            body: JSON.stringify({
+                email: email,
+                password: password,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+                'Authorization': `Bearer ${token}`,
+            },
+            });
+        
+            if (response.ok) {
             const result = await response.json();
             const userEmail = result.email;
             const userId = result.userId;
+        
             if (userId !== undefined && userEmail !== undefined) {
                 cookies.set("TOKEN", result.token, {
-                    path: "/"
-                    });
+                path: "/"
+                });
                 localStorage.setItem('email', userEmail);
                 localStorage.setItem('id', userId);
                 setEmail('');
                 setPassword('');
                 setLogin(true);
                 setToken(result.token);
-                setUser(result);
+                setUser(result); // Update the user context here
             }
-        })
-        .catch((err) => {
-        console.log(err.message , ":error message");
-    });
+            } else {
+            console.log("Login failed");
+            }
+        } catch (err) {
+            if (isError(err)) {
+                console.log(err.message, ": error message");
+            } else {
+                console.log("An unknown error occurred:", err);
+            }
+            }
+        };
+
+const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await loginUser();
     navigate('/game');
 };
 
-const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    loginUser(user);
-};
-
     return (
-    <div className="form-container-login fade-page">
+    <div className="form-container-login">
         <form method="post" onSubmit={handleSubmit} encType="multipart/form-data" className="login-form">
             <label className="labels">
                 Email

@@ -50,21 +50,6 @@ input[type="file"] {
     padding: 20px 10px;
 }
 
-.form-image-container {
-    position: absolute;
-    top: 50px;
-    left:94px;
-    background-color: lightgrey;
-    height: 340px;
-    width: 520px;
-    overflow: hidden;
-    margin: auto;
-}
-
-.new-ramen-image {
-    width:520px;
-}
-
 .hidden {
     display: none;
 }
@@ -82,30 +67,6 @@ form {
     padding-bottom: 100px;
 }
 
-.quill {
-    background-color: white;
-    border-radius: 5px;
-    margin-top: 10px;
-    font-size: 16px;
-}
-
-.ql-editor {
-    min-height: 100px;
-}
-
-.ql-toolbar.ql-snow {
-    border-radius: 5px 5px 0 0;
-}
-
-.ql-container {
-    /* font-size: 16px !important; */
-}
-
-.login-page-image{
-    position: absolute;
-    top: 80px;
-
-}
 
 .login-form {
     margin-top: 150px;

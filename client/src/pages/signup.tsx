@@ -1,8 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { useNavigate } from 'react-router-dom';
 import { config } from '../config/config';
-import "../components/form.css"
-import "./signup.css"
 
 const URL = config.url;
 
@@ -103,7 +101,7 @@ const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     return (
     <div className="form-container">
         <div className="form-user-image-container">
-            {imageUrl && <img src={imageUrl} alt="preview"/>}
+            {imageUrl && <img src={imageUrl} alt="preview" className="new-user-image"/>}
         </div>
         <form method="post" onSubmit={handleSubmit} encType="multipart/form-data">
             <label className="labels">

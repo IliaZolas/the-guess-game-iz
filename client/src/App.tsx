@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useEffect, useMemo, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useMemo, useState } from 'react';
 import './App.css';
 import Navbar from './components/navbar';
 import Home from './pages/home';
@@ -13,6 +13,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ProtectedRoutes from './ProtectedRoutes';
 import { User, UserContext, UserContextProps } from './UserContext';
 import { config } from './config/config';
+import "./styles/main.scss"
 
 const URL = config.url;
 console.log('URL shown in App.js', URL);

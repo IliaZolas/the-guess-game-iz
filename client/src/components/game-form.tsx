@@ -1,17 +1,10 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useState, FormEvent } from "react";
 import { config } from '../config/config';
-import "./meal-plan-form.css";
-import 'react-quill/dist/quill.snow.css';
 
 const URL = config.url;
 
 const AddMealPlan: React.FC = () => {
   const [input, setInput] = useState('')
-
-
-  const heading =
-
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
