@@ -99,65 +99,59 @@ const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 };
 
     return (
-    <div className="form-container">
-        <div className="form-user-image-container">
-            {imageUrl && <img src={imageUrl} alt="preview" className="new-user-image"/>}
+    <div className="background">   
+        <div className="form-container">
+            <div className="form-user-image-container">
+                {imageUrl && <img src={imageUrl} alt="preview" className="new-user-image"/>}
+            </div>
+            <form method="post" onSubmit={handleSubmit} encType="multipart/form-data">
+                    <input 
+                        type="text" 
+                        name="name" 
+                        placeholder="Name"
+                        onChange={e => setName(e.target.value)} />
+                    <input 
+                        type="text" 
+                        name="surname" 
+                        placeholder="Surname"
+                        onChange={e => setSurname(e.target.value)} />
+                    <input
+                        type="text" 
+                        name="email" 
+                        placeholder="Email"
+                        onChange={e => setEmail(e.target.value)} />
+                    <input 
+                        type="text" 
+                        name="password" 
+                        placeholder="Password"
+                        onChange={e => setPassword(e.target.value)} />
+                <label className="labels">
+                    Profile Picture 
+                    <input type="file" name="book" onChange={uploadImage}/>
+                </label>
+                <label className="labels hidden">
+                    imageUrl
+                    <input
+                        type="text" 
+                        name="imageUrl" 
+                        value={imageUrl}
+                        onChange={e => setImageUrl(e.target.value)} />
+                </label>
+                <label className="labels hidden">
+                    publicId
+                    <input
+                        type="text" 
+                        name="publicId" 
+                        value={publicId}
+                        onChange={e => setPublicId(e.target.value)} />
+                </label>
+                <input type="submit" value="Submit" className="primary-submit-button" />
+                <p>
+                    Please note that you will be redirected to login
+                    <br/>Use the same details to enter and begin playing
+                </p>
+            </form>
         </div>
-        <form method="post" onSubmit={handleSubmit} encType="multipart/form-data">
-            <label className="labels">
-                Name
-                <input 
-                    type="text" 
-                    name="name" 
-                    placeholder="name"
-                    onChange={e => setName(e.target.value)} />
-            </label>
-            <label className="labels">
-                Surname
-                <input 
-                    type="text" 
-                    name="surname" 
-                    placeholder="surname"
-                    onChange={e => setSurname(e.target.value)} />
-            </label>
-            <label className="labels">
-                Email
-                <input
-                    type="text" 
-                    name="email" 
-                    placeholder="email"
-                    onChange={e => setEmail(e.target.value)} />
-            </label>
-            <label className="labels">
-                Password
-                <input 
-                    type="text" 
-                    name="password" 
-                    placeholder="password"
-                    onChange={e => setPassword(e.target.value)} />
-            </label>
-            <label className="labels">
-                Image
-                <input type="file" name="book" onChange={uploadImage}/>
-            </label>
-            <label className="labels hidden">
-                imageUrl
-                <input
-                    type="text" 
-                    name="imageUrl" 
-                    value={imageUrl}
-                    onChange={e => setImageUrl(e.target.value)} />
-            </label>
-            <label className="labels hidden">
-                publicId
-                <input
-                    type="text" 
-                    name="publicId" 
-                    value={publicId}
-                    onChange={e => setPublicId(e.target.value)} />
-            </label>
-            <input type="submit" value="Submit" className="primary-submit-button" />
-        </form>
     </div>
     )
 };

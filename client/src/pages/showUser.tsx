@@ -64,7 +64,7 @@ const ShowUser: React.FC = () => {
                 <div className="" >
                     <div className="show-user-image-container">
                         {user && (
-                            <img src={user.imageUrl} style={{width: 400}} alt="" className="show-user-image"/>
+                            <img src={user.imageUrl} style={{paddingTop: "20px"}} alt="" className="new-user-image"/>
                         )}
                     </div>
                     {user && (
@@ -72,8 +72,7 @@ const ShowUser: React.FC = () => {
                             <h1>{user.name} {user.surname}</h1>
                             <p>{user.email}</p>
                             <div className="user-button-area">
-                                <div className="update-button button" onClick={() => updateUser(user._id)} >Update</div>
-                                <div className="delete-button button" onClick={() => deleteUser(user._id, user.public_id)} id={user._id}>Delete</div>
+                                <div className="secondary-button" onClick={() => updateUser(user._id)} >Update</div>
                             </div>
                         </>
                     )}

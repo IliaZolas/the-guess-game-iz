@@ -116,61 +116,61 @@ const UpdateUserForm: React.FC = () => {
   };
 
   return (
-    <div>
-      <div className="form-user-image-container">
-        <img src={imageUrl} alt="preview" />
+      <div className="form-container">
+        <div className="form-user-image-container">
+          <img src={imageUrl} alt="preview" className="new-user-image" />
+        </div>
+        <form method="puts" onSubmit={handleSubmit} encType="multipart/form-data">
+          <label className="labels">
+            Name
+            <input
+              type="text"
+              name="name"
+              placeholder="name"
+              value={name}
+              onChange={e => setName(e.target.value)} />
+          </label>
+          <label className="labels">
+            Surname
+            <input
+              type="text"
+              name="surname"
+              placeholder="surname"
+              value={surname}
+              onChange={e => setSurname(e.target.value)} />
+          </label>
+          <label className="labels">
+            Email
+            <input
+              type="text"
+              name="email"
+              placeholder="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)} />
+          </label>
+          <label className="labels">
+            Image
+            <input type="file" name="book" onChange={uploadImage}/>
+          </label>
+          <label className="labels hidden">
+            imageUrl
+            <input
+              type="text"
+              name="imageUrl"
+              value={imageUrl}
+              onChange={e => setImageUrl(e.target.value)} />
+          </label>
+          <label className="labels hidden">
+            publicId
+            <input
+              type="text"
+              name="publicId"
+              value={publicId}
+              onChange={e => setPublicId(e.target.value)} />
+          </label>
+          <input type="submit" value="Submit" className="primary-submit-button" />
+        </form>
       </div>
-      <form method="puts" onSubmit={handleSubmit} encType="multipart/form-data">
-        <label className="labels">
-          Name
-          <input
-            type="text"
-            name="name"
-            placeholder="name"
-            value={name}
-            onChange={e => setName(e.target.value)} />
-        </label>
-        <label className="labels">
-          Surname
-          <input
-            type="text"
-            name="surname"
-            placeholder="surname"
-            value={surname}
-            onChange={e => setSurname(e.target.value)} />
-        </label>
-        <label className="labels">
-          Email
-          <input
-            type="text"
-            name="email"
-            placeholder="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)} />
-        </label>
-        <label className="labels">
-          Image
-          <input type="file" name="book" onChange={uploadImage}/>
-        </label>
-        <label className="labels hidden">
-          imageUrl
-          <input
-            type="text"
-            name="imageUrl"
-            value={imageUrl}
-            onChange={e => setImageUrl(e.target.value)} />
-        </label>
-        <label className="labels hidden">
-          publicId
-          <input
-            type="text"
-            name="publicId"
-            value={publicId}
-            onChange={e => setPublicId(e.target.value)} />
-        </label>
-        <input type="submit" value="Submit" className="primary-submit-button" />
-      </form>
-    </div>
   );
 };
 

@@ -9,7 +9,7 @@
 }
 
 .logged-out {
-    background-color:grey;
+    background-color:rgb(44, 44, 44);
     /* position: fixed;
     width: 100%; */
 }
@@ -43,7 +43,7 @@
 }
 
 .nav-cta a {
-    background-color: darkgrey;
+    background-color: #009c9c;
     color:white;
     padding: 10px 15px;
 }
@@ -60,9 +60,9 @@ Link {
 .nav-dropdown {
     display: none;
     position: absolute;
-    top: 80px;
+    top: 75px;
     right: 0px ;
-    background-color: beige;
+    background-color: #009c9c;
     z-index: 1;
 }
 
@@ -75,6 +75,6 @@ Link {
 }
 
 .item-in-dropdown {
-    color: black;
+    color: white;
     text-decoration: none;
 }

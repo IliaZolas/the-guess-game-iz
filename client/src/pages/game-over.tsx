@@ -15,13 +15,17 @@ const GameOver: React.FC = () => {
     };
 
     return (
-        <div style={{ paddingTop: "350px"}}>
-            <h1>You win!</h1>
-            <p style={{ paddingBottom: "20px"}}> 
-                The game is over
-            </p>
-            <PrimaryButton to={'/game-start'} value="Play Again?"/>
-            <SecondaryButton to="/" onClick={() => logout()} value="or logout"/>
+        <div className="background">
+            <div className="form-container">
+                <div className="text-container">
+                    <h1>You win!</h1>
+                    <p style={{ paddingBottom: "20px"}}> 
+                        The game is over
+                    </p>
+                    <PrimaryButton to={'/game-start'} value="Play Again?"/>
+                    <SecondaryButton to="/" onClick={() => logout()} value="or logout"/>
+                </div>
+            </div>
         </div>
     );
 }

@@ -78,26 +78,28 @@ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 };
 
     return (
-    <div className="form-container-login">
-        <form method="post" onSubmit={handleSubmit} encType="multipart/form-data" className="login-form">
-            <label className="labels">
-                Email
-                <input 
-                    type="text" 
-                    name="email" 
-                    placeholder="email"
-                    onChange={e => setEmail(e.target.value)} />
-            </label>
-            <label className="labels">
-                Password
-                <input 
-                    type="text" 
-                    name="password" 
-                    placeholder="password"
-                    onChange={e => setPassword(e.target.value)} />
-            </label>
-            <input type="submit" value="Submit" className="primary-submit-button" />
-        </form>
+        <div className="background">   
+            <div className="form-container-login">
+                <form method="post" onSubmit={handleSubmit} encType="multipart/form-data" className="login-form">
+                    <label className="labels">
+                        Email
+                        <input 
+                            type="text" 
+                            name="email" 
+                            placeholder="email"
+                            onChange={e => setEmail(e.target.value)} />
+                    </label>
+                    <label className="labels">
+                        Password
+                        <input 
+                            type="text" 
+                            name="password" 
+                            placeholder="password"
+                            onChange={e => setPassword(e.target.value)} />
+                    </label>
+                    <input type="submit" value="Submit" className="primary-submit-button" />
+                </form>
+            </div>
     </div>
     )
 };

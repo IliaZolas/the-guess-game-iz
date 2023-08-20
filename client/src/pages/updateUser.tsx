@@ -3,11 +3,8 @@ import UpdateUserForm from "../components/updateUserForm";
 const UpdateUser = () => {
 
     return (
-        <div className="">
-            <div className="">
-                Update your account
+        <div className="background">
                 <UpdateUserForm />
-            </div>
         </div>
     );
 }
