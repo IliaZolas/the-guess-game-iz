@@ -18,7 +18,7 @@ const GameStart: React.FC = () => {
         fetch(`${URL}/start-the-game`)
             .then((response) => response.json())
             .then((data: { gameId: string; gameNumber: number }) => {
-                console.log(data);
+                // console.log(data);
                 setGameId(data.gameId);
                 setGameNumber(data.gameNumber);
             })

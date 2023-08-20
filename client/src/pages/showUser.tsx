@@ -33,8 +33,8 @@ const ShowUser: React.FC = () => {
     }, []);
 
     const deleteUser = async (id: string, public_id: string) => {
-        console.log("delete:", id);
-        console.log("delete:", public_id);
+        // console.log("delete:", id);
+        // console.log("delete:", public_id);
 
         try {
             const response = await fetch(`${URL}/user/delete/${id}/${public_id}`, {

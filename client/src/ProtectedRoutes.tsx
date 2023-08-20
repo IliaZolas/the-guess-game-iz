@@ -4,7 +4,7 @@ const cookies = new Cookies();
 
 const ProtectedRoutes = () => {
   const auth = cookies.get("TOKEN");
-  console.log("auth:", auth)
+  // console.log("auth:", auth)
 
 return (
     auth ? <Outlet/> : <Navigate to='/login'/>
