@@ -22,10 +22,12 @@
     "universal-cookie": "^4.0.4",
     "web-vitals": "^2.1.4"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "if [ \"$AZURE_DEPLOYMENT\" != \"true\" ]; then react-scripts test; fi",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
