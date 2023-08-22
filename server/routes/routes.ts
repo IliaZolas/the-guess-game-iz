@@ -1,8 +1,6 @@
 import express, { Request, Response } from 'express';
 import { Router } from 'express';
 import newUserTemplateCopy from '../models/users';
-import newMealPlanTemplateCopy from '../models/mealplans';
-import MealPlans from '../models/mealplans';
 import Users from '../models/users';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
